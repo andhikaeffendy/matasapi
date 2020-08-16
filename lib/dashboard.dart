@@ -1,4 +1,3 @@
-import 'package:dropdown_menu/dropdown_menu.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatefulWidget {
@@ -101,12 +100,34 @@ class _DashboardState extends State<Dashboard> {
                       )),
                 ],
               ),
-            ),Container(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: Color.fromRGBO(80, 51, 198, 0.2),
+            ),GestureDetector(
+              onTap: (){},
+              child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 8.0),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Color.fromRGBO(80, 51, 198, 0.2),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 16.0),
+                        child: Text(
+                          'Bahan Tersedia',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      Spacer(),
+                      Container(
+                        margin: EdgeInsets.only(right: 16.0),
+                        child: Icon(Icons.arrow_drop_down,color:Colors.white),
+                      )
+                    ],
+                  )
               ),
             ),
           ],
@@ -115,3 +136,4 @@ class _DashboardState extends State<Dashboard> {
     );
   }
 }
+
