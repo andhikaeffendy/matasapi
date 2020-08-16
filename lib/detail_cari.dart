@@ -1,91 +1,73 @@
-import 'package:flappy_search_bar/flappy_search_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:matasapi/detail_resep.dart';
 
-class DaftarSaya extends StatefulWidget {
+class DetailCari extends StatefulWidget {
   @override
-  _DaftarSayaState createState() => _DaftarSayaState();
+  _DetailCariState createState() => _DetailCariState();
 }
 
-class _DaftarSayaState extends State<DaftarSaya> {
+class _DetailCariState extends State<DetailCari> {
   List<String> litems = ["1","2","Third","4"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.only(top: 30.0, left: 16.0, right: 16.0, bottom: 8.0),
+            margin: EdgeInsets.only(top: 30.0, left: 16.0, right: 16.0, bottom: 8.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(top: 10),
-                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 20),
-                decoration: BoxDecoration(
-                  color: Colors.black38.withAlpha(10),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
+            children: [
+              Stack(
+                alignment: Alignment.bottomLeft,
+                children: <Widget>[
+                  Container(
+                    width: double.infinity,
+                    height: MediaQuery.of(context).size.height*0.25,
+                    child: Image.network('https://www.nibble.id/wp-content/uploads/2017/04/makanan-enak-di-bogor-01.jpg',fit: BoxFit.fill,),
                   ),
-                ),
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: "Pencarian",
-                          hintStyle: TextStyle(
-                            color: Colors.black.withAlpha(120),
-                          ),
-                          border: InputBorder.none,
-                        ),
-                        onChanged: (String keyword) {},
-                      ),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 12.0),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      color: Colors.deepPurpleAccent,
                     ),
-                    Icon(
-                      Icons.search,
-                      color: Colors.black.withAlpha(120),
-                    )
-                  ],
-                ),
-              ),SizedBox(
-                height: 24.0,
-              ),SizedBox(
-                width: double.infinity,
-                child: FlatButton(
-                    color: Colors.deepPurple,
-                    onPressed: () {},
-                    child: Container(
-                      padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
-                      child: Text(
-                        'Perbarui Daftar bahan saya',
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          color: Colors.white,
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: 16.0,
                         ),
-                      ),
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.pop(context);
+                          },
+                          child: Icon(
+                            Icons.arrow_back_ios,
+                            color: Color(0XFFffba37),
+                          ),
+                        ),Container(
+                          padding: EdgeInsets.only(left: 12.0),
+                          child: Text(
+                            'Menu Utama',
+                            style: TextStyle(
+                                color: Color(0XFFffba37),
+                                fontSize: 16.0
+                            ),
+                            textAlign: TextAlign.start,
+                          ),
+                        ),
+                      ],
                     )
-                ),
-              ),SizedBox(
-                height: 24.0,
-              ),GestureDetector(
-                onTap: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => DetailResep()),
-                  );
-                },
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 1,
-                  height: MediaQuery.of(context).size.width * 0.3,
-                  child: Image.network('https://cdn-cas.orami.co.id/parenting/images/negara-dgn-makanan-palijng-enak-.original.jpegquality-90.jpg', fit: BoxFit.fill,),
-                ),
+                  )
+                ],
               ),SizedBox(
                 height: 24.0,
               ),Text(
-                'Resep sesuai bahan Anda',
+                'Resep Sesuai bahan anda',
                 style: TextStyle(
-                    color: Colors.deepPurple,
-                    fontSize: 20.0
+                  color: Color(0XFF5033C6),
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold
                 ),
               ),SizedBox(
                 height: 8.0,
@@ -102,8 +84,8 @@ class _DaftarSayaState extends State<DaftarSaya> {
                       child: Container(
                         decoration: BoxDecoration(
                           border: Border.all(
-                            width: 4.0,
-                            color: Colors.deepPurple
+                              width: 4.0,
+                              color: Colors.deepPurple
                           ),
                         ),
                         margin: EdgeInsets.only(bottom: 8.0, right: 8.0),
@@ -136,8 +118,9 @@ class _DaftarSayaState extends State<DaftarSaya> {
               ),Text(
                 'Lainnya',
                 style: TextStyle(
-                    color: Colors.deepPurple,
-                    fontSize: 20.0
+                    color: Color(0XFF5033C6),
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold
                 ),
               ),SizedBox(
                 height: 8.0,
@@ -184,9 +167,6 @@ class _DaftarSayaState extends State<DaftarSaya> {
                       ),
                     );
                   }),
-              SizedBox(
-                height: 16.0,
-              )
             ],
           ),
         ),

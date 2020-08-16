@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
   TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
-  final _pageOption = [DaftarSaya(), Cari(), AkunSaya(),Dashboard()];
+  final _pageOption = [Dashboard(), Cari(), AkunSaya(),DaftarSaya()];
 
   void _onItemTapped(int index) {
     setState(() {
